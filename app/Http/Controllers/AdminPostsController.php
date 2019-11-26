@@ -25,9 +25,10 @@ class AdminPostsController extends Controller
 
     public function edit($id)
     {
-        $data = ['id' => $id];
-
-        return view('admin.posts.edit', $data);
+        //練習6-1：在 PostsController的 edit內取得舊資料
+        $post=Post::find($id);
+        $data=['post'=>$post];
+        return view('admin.posts.edit',$data);
     }
     //練習 4-4：設定 AdminPostsController對應的 function
     public function store(Request $request)
@@ -37,5 +38,7 @@ class AdminPostsController extends Controller
         //練習5-5：設定頁面跳轉
         return redirect()->route('admin.posts.index');
     }
+
+
 
 }

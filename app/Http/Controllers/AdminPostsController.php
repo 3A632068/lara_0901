@@ -38,7 +38,12 @@ class AdminPostsController extends Controller
         //練習5-5：設定頁面跳轉
         return redirect()->route('admin.posts.index');
     }
-
-
+    //練習6-5：在 PostsController的 update內更新資料
+    public function update(Request$request,$id)
+    {
+        $post=Post::find($id);
+        $post->update($request->all());
+        return redirect()->route('admin.posts.index');
+    }
 
 }

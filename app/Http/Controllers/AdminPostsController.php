@@ -32,8 +32,10 @@ class AdminPostsController extends Controller
     //練習 4-4：設定 AdminPostsController對應的 function
     public function store(Request $request)
     {
-        //練習5：新增資料
+        //練習5-1：新增資料
         Post::create($request->all());
+        //練習5-5：設定頁面跳轉
+        return redirect()->route('admin.posts.index');
     }
 
 }

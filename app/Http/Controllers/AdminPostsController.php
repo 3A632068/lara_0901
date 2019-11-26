@@ -30,9 +30,10 @@ class AdminPostsController extends Controller
         return view('admin.posts.edit', $data);
     }
     //練習 4-4：設定 AdminPostsController對應的 function
-    public function store()
+    public function store(Request $request)
     {
-
+        //練習5：新增資料
+        Post::create($request->all());
     }
 
 }
